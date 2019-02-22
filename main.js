@@ -1,0 +1,1 @@
+let paragraph = document.getElementById('text-area');
