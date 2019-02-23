@@ -1,17 +1,12 @@
 $(document).ready(function () {
-    $("#text_box").each(function () {
-        var text = $(this);
-
+    $("#text_box").on("propertychange", function (event) {
         // Save current value of the text box
-        text.data("oldVal", text.val());
-
+        this.data("oldVal", this.val());
         // Look for changes in value
-        text.on("propertychange", function (event) {
-            if (text.data("oldVal") != text.val) {
-                text.val = "hi";
-                text.data("oldVal", text.val());
-            }
-
-        })
+        if (this.data("oldVal") != this.val()) {
+            this.data("oldVal", this.val());
+        }
     })
-});
+})
+
+
