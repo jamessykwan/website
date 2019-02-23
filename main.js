@@ -1,11 +1,17 @@
-$(document).ready(function () {
-    $("#text_box").on("propertychange", function (event) {
+
+jQuery(document).ready(function ($) {
+    $('#text_box').val('Hi');
+
+    $("#text_box").on("propertychange input", function () {
+        console.log("hi");
         // Save current value of the text box
-        this.data("oldVal", this.val());
+        $('#text_box').data("oldVal", $('#text_box').val);
         // Look for changes in value
-        if (this.data("oldVal") != this.val()) {
-            this.data("oldVal", this.val());
-        }
+        $('#text_box').val('changed');
+
+        $('#text_box').data("oldVal", $('#text_box').val);
+
+    
     })
 })
 
